@@ -6,17 +6,27 @@ import java.util.List;
 import java.util.Random;
 
 public class Deck {
-    List<Card> cardDeck;
+    private List<Card> deck;
     String[] suit = {"Heart", "Spade", "Diamond", "Club"};
 
     public Deck() {
-        this.cardDeck = new ArrayList<Card>();
+        this.deck = new ArrayList<Card>();
         for(int value = 1; value <=13 ; value++) {
             for (int i = 0; i < 4; i++) {
-                cardDeck.add(new Card(suit[i], value));
+                deck.add(new Card(suit[i], value));
             }
         }
-        Collections.shuffle(cardDeck, new Random());
+        Collections.shuffle(deck, new Random());
+    }
+
+
+    public void dealCard(Player player){
+        Card removedCard = deck.remove(0);
+        player.getHand().add(removedCard);
+    }
+
+    public Card dealCard(int index){
+        return deck.remove(index);
     }
 
 }
