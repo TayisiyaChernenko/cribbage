@@ -29,4 +29,21 @@ public class Deck {
         return deck.remove(index);
     }
 
+     public void dealHand(Player dealer, Player player){
+        //both players gets 6 cards initially, discards down to 4 later
+        //alternate the dealing of cards between the player and dealer
+        for (int i =1; i < 7; i++){
+                dealCard(player);
+                dealCard(dealer);
+            }
+    }
+     public void dealHand(Player dealer, Player player1, Player player2){
+        //each player gets 5 cards initially, discards down to 4 later
+         for (int i = 1; i < 6; i++){
+             dealCard(player1);
+             dealCard(player2);
+             dealCard(dealer);
+         }
+    }
+
 }
