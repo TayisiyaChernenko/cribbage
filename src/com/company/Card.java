@@ -1,8 +1,8 @@
 package com.company;
 
 public class Card {
-    String suit;
-    Integer val;
+    private final String suit;
+    private final Integer val;
 
     public Card(String suit, Integer val) {
         this.suit = suit;
@@ -26,7 +26,7 @@ public class Card {
                 break;
             case 12 : v = "King";
                 break;
-            case 13 : v = "Ace";
+            case 0 : v = "Ace";
                 break;
             default : v = val.toString();
         }

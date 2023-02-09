@@ -11,7 +11,7 @@ public class Deck {
 
     public Deck() {
         this.deck = new ArrayList<Card>();
-        for(int value = 1; value <=13 ; value++) {
+        for(int value = 0; value <=12 ; value++) {
             for (int i = 0; i < 4; i++) {
                 deck.add(new Card(suit[i], value));
             }
@@ -45,5 +45,16 @@ public class Deck {
              dealCard(dealer);
          }
     }
+
+    public void shuffle(){
+      Collections.shuffle(deck, new Random());
+    }
+
+    public int showCardAt(int index){
+        Visualizer vizCard = new Visualizer();
+        vizCard.displayCard(deck.get(index));
+        return deck.get(index).getVal();
+    }
+
 
 }
