@@ -10,13 +10,18 @@ public class Round {
     ArrayList<Card> pile = new ArrayList<>();
     int gameCounter =  0;
     Deck deck;
-    Card flipped;
+    private Card flipped;
     Visualizer v = new Visualizer();
     Scanner kb = new Scanner(System.in);
+    Player dealer;
 
 
-    public Round(Deck deck) {
+    public Round(Deck deck, Player dealer) {
         this.deck = deck;
+        this.dealer = dealer;
+    }
+    public void play(){
+        System.out.println("New Round");
     }
 
     // needs to allow players to take turns putting cards onto the pile
@@ -60,4 +65,17 @@ public class Round {
         System.out.println(p.name + " cut the deck (Choose a card # 0-39) >>> ");
         flipped = deck.dealCard(kb.nextInt());
     }
+
+    public Player getDealer(){
+        return dealer;
+    }
+
+    public Player[] getPlayers(){
+        return new Player[]{};
+    }
+
+    public Card getFlipped(){
+        return flipped;
+    }
+
 }

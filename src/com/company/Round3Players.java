@@ -1,15 +1,13 @@
 package com.company;
 
 public class Round3Players extends Round{
-    Player dealer;
     Player player1;
     Player player2;
 
     public Round3Players(Player dealer, Player player1, Player player2, Deck deck) {
-        super(deck);
+        super(deck, dealer);
         this.player1 = player1;
         this.player2 = player2;
-        this.dealer = dealer;
         System.out.println(dealer.name + " is the dealer");
         super.deck.dealHand(dealer,player1, player2);
         System.out.println("Cards Dealt");
@@ -18,19 +16,32 @@ public class Round3Players extends Round{
         makeCrib(player2);
         super.v.displayHand(super.crib, "The Crib ");
         roundOfGame();
-        player1.hand.clear();
-        player2.hand.clear();
-        dealer.hand.clear();
+        player1.getHand().clear();
+        player2.getHand().clear();
+        dealer.getHand().clear();
         pile.clear();
     }
+
+    public void play(){
+        super.play();
+        System.out.println(dealer.name + " is the dealer");
+        super.deck.dealHand(dealer,player1, player2);
+        System.out.println("Cards Dealt");
+        makeCrib(dealer);
+        makeCrib(player1);
+        makeCrib(player2);
+        super.v.displayHand(super.crib, "The Crib ");
+        roundOfGame();
+        player1.getHand().clear();
+        player2.getHand().clear();
+        dealer.getHand().clear();
+        pile.clear();
+    }
+
     public void roundOfGame() {
         selectFlippedCard(player1);
         System.out.println("The flipped card for this round will be ");
-        v.displayCard(flipped);
-
-        //int handPointsPlayer1 = hcPoints(player1.getHand(), flipped, false);
-        //int handPointsPlayer2 = hcPoints(player2.getHand(), flipped, false);
-        //int dealerHandCribPoints = hcPoints(dealer.getHand(), flipped, true);
+        v.displayCard(super.getFlipped());
 
         Player currPlayer = player1;
         Boolean player1SaidGo  = false;
@@ -73,12 +84,10 @@ public class Round3Players extends Round{
             }
             else if (player1SaidGo && player2SaidGo && dealerSaidGo){
                 //end of turn, add the hand points to the peg of all players
-                //player1.pegAt += handPointsPlayer1;
-                //player2.pegAt += handPointsPlayer2;
-                //dealer.pegAt += dealerHandCribPoints;
-                player1.hand.clear();
-                player2.hand.clear();
-                dealer.hand.clear();
+
+                player1.getHand().clear();
+                player2.getHand().clear();
+                dealer.getHand().clear();
                 break;
             }
         }
@@ -98,4 +107,9 @@ public class Round3Players extends Round{
         }
         v.displayHand(player.getHand(), "Your starting hand is ");
     }
+
+    public Player[] getPlayers(){
+        return new Player[]{player1, player2};
+    }
+
 }
