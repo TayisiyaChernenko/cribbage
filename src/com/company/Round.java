@@ -41,8 +41,7 @@ public class Round {
             pile.add(0, currPlayer.removeCard(choice));
             gameCounter += pile.get(0).getVal();
             System.out.println("The running total is " + gameCounter);
-            // peg points counted for this turn
-            //currPlayer.pegAt = Board.pegPoints(pile, pile.get(0));
+            // peg points counted for this turn here
             return false;
         } else {
             System.out.println( currPlayer.name + " ,you have no valid cards to play, the turn is over");

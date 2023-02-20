@@ -83,7 +83,7 @@ public class Round3Players extends Round{
                 currPlayer = player2;
             }
             else if (player1SaidGo && player2SaidGo && dealerSaidGo){
-                //end of turn, add the hand points to the peg of all players
+                //end of turn, add the hand points to the peg of all players here
 
                 player1.getHand().clear();
                 player2.getHand().clear();

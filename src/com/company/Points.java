@@ -122,5 +122,13 @@ public class Points {
         return 2;
     }
 
+    public void showPoints(){
+        //show players their current points
+        for (Player player : r.getPlayers()) {
+            System.out.println("The peg total for " + player.name + " is " + player.getPoints());
+        }
+    }
+
+
 
 }

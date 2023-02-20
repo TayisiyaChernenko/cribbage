@@ -27,10 +27,7 @@ public class Round2Players extends Round {
         super.selectFlippedCard(player);
         System.out.println("The flipped card for this round will be ");
         v.displayCard(getFlipped());
-        //count hand and crib points before the hand starts being reduced, won't be added until after the round ends
-        //false bc player does not get crib points
-        //int handPointsPlayer1 = hcPoints(player1.getHand(), flipped, false);
-        //int dealerHandCribPoints = hcPoints(dealer.getHand(), flipped, true);
+        //count hand and crib points before the hand starts being reduced, won't be added until after the round ends here
 
 
         //The turns begin with the first non-dealer player
@@ -60,7 +57,7 @@ public class Round2Players extends Round {
             }
             //If we're here, both have passed, end of round
             else if (playerSaidGo && dealerSaidGo) {
-                //end of turn, add the hand points to the peg of both players
+                //end of turn, add the hand points to the peg of both players here
 
                 player.getHand().clear();
                 dealer.getHand().clear();
